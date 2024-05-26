@@ -3,7 +3,7 @@
 
 # Do not ignore .gitignore file
 !/.gitignore
-
+!/README.md
 # Allow specific folders and their contents
 !/mako/
 !/mako/**
