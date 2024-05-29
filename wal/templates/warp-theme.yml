@@ -1,0 +1,23 @@
+accent: '{color2}' # Accent color for UI elements
+background: '{background}' # Terminal background color
+details: darker # Whether the theme is lighter or darker.
+foreground: '{foreground}' # The foreground color.
+terminal_colors: # Ansi escape colors.
+  bright:
+    black: '{color0}'
+    blue: '{color3}'
+    cyan: '{color4}'
+    green: '{color5}'
+    magenta: '{color6}'
+    red: '{color9}'
+    white: '{color15}'
+    yellow: '{color12}'
+  normal:
+    black: '{color0}'
+    blue: '{color9}'
+    cyan: '{color10}'
+    green: '{color11}'
+    magenta: '{color12}'
+    red: '{color13}'
+    white: '{color14}'
+    yellow: '{color15}'

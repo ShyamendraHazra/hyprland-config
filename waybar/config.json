@@ -1,13 +1,12 @@
 {
     "height": 40, // Waybar height (to be removed for auto height)
     "layer": "top", // Waybar at top layer
-    "modules-left": ["custom/launcher", "cpu", "memory", "custom/spotify", "battery"],
+    "modules-left": ["custom/launcher", "cpu", "memory", "battery"],
     "modules-center": ["hyprland/workspaces"],
     "modules-right": [
         "tray",
         "custom/theme",
         "bluetooth",
-        "network",
         "pulseaudio",
         "backlight",
         "clock",
@@ -35,7 +34,7 @@
             "default": ""
         },
         "persistent-workspaces": {
-            "*": 7
+            "*": 10
         }
     },
     "tray": {
@@ -51,7 +50,7 @@
     },
     "bluetooth": {
         "format": "",
-        "on-click": "blueberry"
+        "on-click": "blueman-manager"
     },
     "cpu": {
         "interval": 10,
@@ -78,7 +77,7 @@
         "format-ethernet": "󰈁 ",
         "format-disconnected": "󰖪",
         "tooltip-format": "{essid}",
-        "on-click": "kitty nmtui",
+        "on-click": "",
         "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"]
     },
     "pulseaudio": {
