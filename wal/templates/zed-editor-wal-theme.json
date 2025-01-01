@@ -1,0 +1,392 @@
+{{
+  "$schema": "https://zed.dev/schema/themes/v0.1.0.json",
+  "name": "Pywal",
+  "author": "Shyamendara Hazra",
+  "themes": [
+        {{
+            "name": "Pywal Dark",
+            "appearance": "dark",
+            "accents": [
+                "{color0}",
+                "{color1}",
+                "{color2}",
+                "{color3}",
+                "{color4}",
+                "{color5}",
+                "{color6}"
+            ],
+            
+            "style": {{
+                "border": "{color7}",
+                "border.variant": "{color8}",
+                "border.focused": "{color9}",
+                "border.selected": "{color10}",
+                "border.transparent": "{color11}",
+                "border.disabled": "{color12}",
+                "elevated_surface.background": "{background}",
+                "surface.background": "{background}",
+                "background": "{color15}",
+                "element.background": "{background}",
+                "element.hover": "{color1}",
+                "element.active": "{color2}",
+                "element.selected": "{color3}",
+                "element.disabled": "{color4}",
+                "drop_target.background": "{background}",
+                "ghost_element.background": "{background}",
+                "ghost_element.hover": "{color7}",
+                "ghost_element.active": "{color8}",
+                "ghost_element.selected": "{color9}",
+                "ghost_element.disabled": "{color10}",
+                "text": "{foreground}",
+                "text.muted": "{color14}",
+                "text.placeholder": "{color13}",
+                "text.disabled": "{color14}",
+                "text.accent": "{color15}",
+                "icon": "{color0}",
+                "icon.muted": "{color1}",
+                "icon.disabled": "{color2}",
+                "icon.placeholder": "{color3}",
+                "icon.accent": "{color4}",
+                "status_bar.background": "{background}",
+                "title_bar.background": "{background}",
+                "title_bar.inactive_background": "{background}",
+                "toolbar.background": "{background}",
+                "tab_bar.background": "{background}",
+                "tab.inactive_background": "{background}",
+                "tab.active_background": "{background}",
+                "search.match_background": "{background}",
+                "panel.background": "{background}",
+                "panel.focused_border": null,
+                "pane.focused_border": null,
+                "scrollbar.thumb.background": "{background}",
+                "scrollbar.thumb.hover_background": "{background}",
+                "scrollbar.thumb.border": "{color9}",
+                "scrollbar.track.background": "{background}",
+                "scrollbar.track.border": "{color11}",
+                "editor.foreground": "{foreground}",
+                "editor.background": "{background}",
+                "editor.gutter.background": "{background}",
+                "editor.subheader.background": "{background}",
+                "editor.active_line.background": "{background}",
+                "editor.highlighted_line.background": "{background}",
+                "editor.line_number": "{color10}",
+                "editor.active_line_number": "{color9}",
+                "editor.invisible": "{color10}",
+                "editor.wrap_guide": "{color11}",
+                "editor.active_wrap_guide": "{color12}",
+                "editor.document_highlight.read_background": "{background}",
+                "editor.document_highlight.write_background": "{background}",
+                "terminal.background": "{background}",
+                "terminal.foreground": "{foreground}",
+                "terminal.bright_foreground": "{foreground}",
+                "terminal.dim_foreground": "{foreground}",
+                "terminal.ansi.black": "{color9}",
+                "terminal.ansi.bright_black": "{color0}",
+                "terminal.ansi.dim_black": "{color1}",
+                "terminal.ansi.red": "{color0}",
+                "terminal.ansi.bright_red": "{color1}",
+                "terminal.ansi.dim_red": "{color2}",
+                "terminal.ansi.green": "{color3}",
+                "terminal.ansi.bright_green": "{color4}",
+                "terminal.ansi.dim_green": "{color5}",
+                "terminal.ansi.yellow": "{color6}",
+                "terminal.ansi.bright_yellow": "{color7}",
+                "terminal.ansi.dim_yellow": "{color8}",
+                "terminal.ansi.blue": "{color9}",
+                "terminal.ansi.bright_blue": "{color10}",
+                "terminal.ansi.dim_blue": "{color11}",
+                "terminal.ansi.magenta": "{color12}",
+                "terminal.ansi.bright_magenta": "{color13}",
+                "terminal.ansi.dim_magenta": "{color14}",
+                "terminal.ansi.cyan": "{color15}",
+                "terminal.ansi.bright_cyan": "{color0}",
+                "terminal.ansi.dim_cyan": "{color1}",
+                "terminal.ansi.white": "{color2}",
+                "terminal.ansi.bright_white": "{color3}",
+                "terminal.ansi.dim_white": "{color4}",
+                "link_text.hover": "{color5}",
+                "conflict": "{color6}",
+                "conflict.background": "{background}",
+                "conflict.border": "{color8}",
+                "created": "{color9}",
+                "created.background": "{background}",
+                "created.border": "{color11}",
+                "deleted": "{color12}",
+                "deleted.background": "{background}",
+                "deleted.border": "{color14}",
+                "error": "{color15}",
+                "error.background": "{background}",
+                "error.border": "{color1}",
+                "hidden": "{color2}",
+                "hidden.background": "{background}",
+                "hidden.border": "{color4}",
+                "hint": "{color5}",
+                "hint.background": "{background}",
+                "hint.border": "{color7}",
+                "ignored": "{color8}",
+                "ignored.background": "{background}",
+                "ignored.border": "{color10}",
+                "info": "{color11}",
+                "info.background": "{background}",
+                "info.border": "{color13}",
+                "modified": "{color14}",
+                "modified.background": "{background}",
+                "modified.border": "{color0}",
+                "predictive": "{color1}",
+                "predictive.background": "{background}",
+                "predictive.border": "{color3}",
+                "renamed": "{color4}",
+                "renamed.background": "{background}",
+                "renamed.border": "{color6}",
+                "success": "{color7}",
+                "success.background": "{background}",
+                "success.border": "{color9}",
+                "unreachable": "{color10}",
+                "unreachable.background": "{background}",
+                "unreachable.border": "{color12}",
+                "warning": "{color13}",
+                "warning.background": "{background}",
+                "warning.border": "{color15}",
+                "players": [
+                    {{
+                        "cursor": "{foreground}",
+                        "background": "{background}",
+                        "selection": "{color2}"
+                    }},
+                    {{
+                        "cursor": "{foreground}",
+                        "background": "{background}",
+                        "selection": "{color5}"
+                    }},
+                    {{
+                        "cursor": "{foreground}",
+                        "background": "{background}",
+                        "selection": "{color8}"
+                    }},
+                    {{
+                        "cursor": "{foreground}",
+                        "background": "{background}",
+                        "selection": "{color11}"
+                    }},
+                    {{
+                        "cursor": "{foreground}",
+                        "background": "{background}",
+                        "selection": "{color14}"
+                    }},
+                    {{
+                        "cursor": "{foreground}",
+                        "background": "{background}",
+                        "selection": "{color1}"
+                    }},
+                    {{
+                        "cursor": "{foreground}",
+                        "background": "{background}",
+                        "selection": "{color4}"
+                    }},
+                    {{
+                        "cursor": "{foreground}",
+                        "background": "{background}",
+                        "selection": "{color7}"
+                    }}
+                ],
+                "syntax": {{
+                    "attribute": {{
+                        "color": "{color8}",
+                        "font_style": null,
+                        "font_weight": null
+                    }},
+                    "boolean": {{
+                        "color": "{color9}",
+                        "font_style": null,
+                        "font_weight": null
+                    }},
+                    "comment": {{
+                        "color": "{color0}",
+                        "font_style": null,
+                        "font_weight": null
+                    }},
+                    "comment.doc": {{
+                        "color": "{color1}",
+                        "font_style": null,
+                        "font_weight": null
+                    }},
+                    "constant": {{
+                        "color": "{color2}",
+                        "font_style": null,
+                        "font_weight": null
+                    }},
+                    "constructor": {{
+                        "color": "{color3}",
+                        "font_style": null,
+                        "font_weight": null
+                    }},
+                    "embedded": {{
+                        "color": "{color4}",
+                        "font_style": null,
+                        "font_weight": null
+                    }},
+                    "emphasis": {{
+                        "color": "{color5}",
+                        "font_style": null,
+                        "font_weight": null
+                    }},
+                    "emphasis.strong": {{
+                        "color": "{color6}",
+                        "font_style": null,
+                        "font_weight": 700
+                    }},
+                    "enum": {{
+                        "color": "{color7}",
+                        "font_style": null,
+                        "font_weight": null
+                    }},
+                    "function": {{
+                        "color": "{color8}",
+                        "font_style": null,
+                        "font_weight": null
+                    }},
+                    "function.builtin": {{
+                        "color": "{color9}",
+                        "font_style": null,
+                        "font_weight": null
+                    }},
+                    "hint": {{
+                        "color": "{color10}",
+                        "font_style": null,
+                        "font_weight": 700
+                    }},
+                    "keyword": {{
+                        "color": "{color11}",
+                        "font_style": null,
+                        "font_weight": null
+                    }},
+                    "label": {{
+                        "color": "{color12}",
+                        "font_style": null,
+                        "font_weight": null
+                    }},
+                    "link_text": {{
+                        "color": "{color13}",
+                        "font_style": "italic",
+                        "font_weight": null
+                    }},
+                    "link_uri": {{
+                        "color": "{color14}",
+                        "font_style": null,
+                        "font_weight": null
+                    }},
+                    "number": {{
+                        "color": "{color15}",
+                        "font_style": null,
+                        "font_weight": null
+                    }},
+                    "operator": {{
+                        "color": "{color0}",
+                        "font_style": null,
+                        "font_weight": null
+                    }},
+                    "predictive": {{
+                        "color": "{color1}",
+                        "font_style": "italic",
+                        "font_weight": null
+                    }},
+                    "preproc": {{
+                        "color": "{color2}",
+                        "font_style": null,
+                        "font_weight": null
+                    }},
+                    "primary": {{
+                        "color": "{color3}",
+                        "font_style": null,
+                        "font_weight": null
+                    }},
+                    "property": {{
+                        "color": "{color4}",
+                        "font_style": null,
+                        "font_weight": null
+                    }},
+                    "punctuation": {{
+                        "color": "{color5}",
+                        "font_style": null,
+                        "font_weight": null
+                    }},
+                    "punctuation.bracket": {{
+                        "color": "{color6}",
+                        "font_style": null,
+                        "font_weight": null
+                    }},
+                    "punctuation.delimiter": {{
+                        "color": "{color7}",
+                        "font_style": null,
+                        "font_weight": null
+                    }},
+                    "punctuation.list_marker": {{
+                        "color": "{color8}",
+                        "font_style": null,
+                        "font_weight": null
+                    }},
+                    "punctuation.special": {{
+                        "color": "{color9}",
+                        "font_style": null,
+                        "font_weight": null
+                    }},
+                    "string": {{
+                        "color": "{color10}",
+                        "font_style": null,
+                        "font_weight": null
+                    }},
+                    "string.escape": {{
+                        "color": "{color11}",
+                        "font_style": null,
+                        "font_weight": null
+                    }},
+                    "string.regex": {{
+                        "color": "{color12}",
+                        "font_style": null,
+                        "font_weight": null
+                    }},
+                    "string.special": {{
+                        "color": "{color13}",
+                        "font_style": null,
+                        "font_weight": null
+                    }},
+                    "string.special.symbol": {{
+                        "color": "{color14}",
+                        "font_style": null,
+                        "font_weight": null
+                    }},
+                    "tag": {{
+                        "color": "{color15}",
+                        "font_style": null,
+                        "font_weight": null
+                    }},
+                    "text.literal": {{
+                        "color": "{color0}",
+                        "font_style": null,
+                        "font_weight": null
+                    }},
+                    "title": {{
+                        "color": "{color1}",
+                        "font_style": null,
+                        "font_weight": 700
+                    }},
+                    "type": {{
+                        "color": "{color2}",
+                        "font_style": null,
+                        "font_weight": null
+                    }},
+                    "variable": {{
+                        "color": "{color3}",
+                        "font_style": null,
+                        "font_weight": null
+                    }},
+                    "variant": {{
+                        "color": "{color4}",
+                        "font_style": null,
+                        "font_weight": null
+                    }}
+                }}
+            }}
+        }}
+    ]
+}}

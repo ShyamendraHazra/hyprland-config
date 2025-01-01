@@ -1,15 +1,17 @@
 # Ignore everything
 *
-
+**/*.css
 # Do not ignore .gitignore file
 !/.gitignore
 !/README.md
 # Allow specific folders and their contents
 !/mako/
+/mako/*.css
 !/mako/**
 !/hypr/
 !/hypr/**
 !/waybar/
+/waybar/*.css
 !/waybar/**
 !/ranger/
 !/ranger/**
@@ -17,3 +19,5 @@
 !/rofi/**
 !/wal/
 !/wal/**
+!/nvim/
+!/nvim/**
