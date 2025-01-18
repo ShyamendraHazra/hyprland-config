@@ -2,7 +2,7 @@ return {
 	{
 		'saghen/blink.cmp',
 		dependencies = 'rafamadriz/friendly-snippets',
-
+		build = vim.g.lazyvim_blink_main and "cargo build --release",
 		version = '*',
 
 		opts = {

@@ -1,0 +1,30 @@
+# this is a comment
+
+background-opacity = 0.6
+unfocused-split-opacity = 0.2
+
+font-size = 12
+
+window-decoration = false
+window-padding-x = 5
+window-padding-y = 5
+window-padding-balance = true
+window-vsync = true
+window-decoration = false
+window-save-state = always
+
+gtk-tabs-location = hidden
+adw-toolbar-style = flat
+gtk-wide-tabs = true
+
+quick-terminal-animation-duration = 1
+
+clipboard-paste-protection = true
+
+auto-update = check
+auto-update-channel = stable
+
+# Keybinds
+
+keybind = ctrl+a>r=reload_config
+keybind = ctrl+a>t=new_tab

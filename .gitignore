@@ -21,3 +21,7 @@
 !/wal/**
 !/nvim/
 !/nvim/**
+!/ghostty/
+!/ghostty/**
+/ghostty/themes/
+/ghostty/themes/**
