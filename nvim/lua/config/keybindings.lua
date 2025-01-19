@@ -1,10 +1,18 @@
+-- lua specific
+
 vim.keymap.set("n", "<space><space>x", "<cmd>source %<CR>")
 vim.keymap.set("n", "<space>x", ":.lua<CR>")
 vim.keymap.set("v", "<space>x", ":lua<CR>")
 
+
 --  quick fix menu
 vim.keymap.set("n", "<M-j>", "<cmd>cnext<CR>")
 vim.keymap.set("n", "<M-k>", "<cmd>cprev<CR>")
+
+
+-- Floating terminal
+
+vim.keymap.set("n", "<space>tf", ":Floaterminal<CR>", { noremap = true, nowait = true, silent = true })
 
 -- Neotree
 
