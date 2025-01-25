@@ -28,5 +28,5 @@ vim.keymap.set("n", "<space>ec", ":Neotree close<CR>", opts)
 -- Buffers
 vim.keymap.set('n', '<Tab>', ':bnext<CR>', opts)
 vim.keymap.set('n', '<S-Tab>', ':bprevious<CR>', opts)
-vim.keymap.set('n', '<space>x', ':bdelete!<CR>', opts)   -- close buffer
-vim.keymap.set('n', '<space>b', '<cmd> enew <CR>', opts) -- new buffer
+vim.keymap.set('n', '<space>bc', ':bdelete!<CR>', opts)   -- close buffer
+vim.keymap.set('n', '<space>bo', '<cmd> enew <CR>', opts) -- new buffer
