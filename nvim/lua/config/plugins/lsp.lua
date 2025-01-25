@@ -23,7 +23,9 @@ return {
 
 			-- Setup LSP servers
 			setup_server("lua_ls")
-			setup_server("clangd")
+			setup_server("clangd", {
+				cmd = { "clangd" },
+			})
 			setup_server("neocmake")
 			setup_server("intelephense")
 			setup_server("html", {

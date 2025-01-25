@@ -1,7 +1,7 @@
 # this is a comment
 
 background-opacity = 0.6
-unfocused-split-opacity = 0.2
+unfocused-split-opacity = 0.4
 
 font-size = 12
 
@@ -13,9 +13,9 @@ window-vsync = true
 window-decoration = false
 window-save-state = always
 
-gtk-tabs-location = hidden
+gtk-tabs-location = bottom
 adw-toolbar-style = flat
-gtk-wide-tabs = true
+gtk-wide-tabs = false
 
 quick-terminal-animation-duration = 1
 
