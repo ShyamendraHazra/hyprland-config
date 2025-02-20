@@ -30,3 +30,6 @@ vim.keymap.set('n', '<Tab>', ':bnext<CR>', opts)
 vim.keymap.set('n', '<S-Tab>', ':bprevious<CR>', opts)
 vim.keymap.set('n', '<space>bc', ':bdelete!<CR>', opts)   -- close buffer
 vim.keymap.set('n', '<space>bo', '<cmd> enew <CR>', opts) -- new buffer
+
+-- Pywal toggle bg
+vim.keymap.set('n', '<space>tb', ':ToggleBg<CR>', opts)
