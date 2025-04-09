@@ -122,7 +122,7 @@
     },
     "custom/power-menu": {
         "format": " ⏻ ",
-        "on-click": "~/.config/rofi/scripts/powermenu"
+        "on-click": "wlogout"
     },
     "custom/launcher": {
         "format": "󰣇",
