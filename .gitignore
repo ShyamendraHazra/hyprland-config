@@ -2,9 +2,11 @@
 !hypr/
 !waybar/
 !nvim/
+!/wlogout/
+!wlogout/*
 !wal/
 !ghostty/
 !rofi/
 ! *.md
 ! .gitignore
-
+waybar/colors-waybar.css
