@@ -1,12 +1,16 @@
 *
 !hypr/
-!waybar/
+!hypr/**
+!wlogout/
+!wlogout/**
 !nvim/
-!/wlogout/
-!wlogout/*
-!wal/
-!ghostty/
+!nvim/**
 !rofi/
-! *.md
-! .gitignore
+!rofi/**
+!waybar/
+!waybar/**
 waybar/colors-waybar.css
+!ghostty/
+!ghostty/**
+!wal/
+!wal/**

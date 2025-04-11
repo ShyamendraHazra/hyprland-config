@@ -1,0 +1,24 @@
+# pywal theme for ghostty
+
+background = 0B1516
+foreground = c2c4c4
+cursor-color = c2c4c4
+selection-background = c2c4c4
+selection-foreground = 0B1516
+
+palette = 0=#0B1516
+palette = 1=#5E9D4D
+palette = 2=#B8D842
+palette = 3=#2360AB
+palette = 4=#3174C0
+palette = 5=#6293A7
+palette = 6=#4599D6
+palette = 7=#c2c4c4
+palette = 8=#596a6d
+palette = 9=#5E9D4D
+palette = 10=#B8D842
+palette = 11=#2360AB
+palette = 12=#3174C0
+palette = 13=#6293A7
+palette = 14=#4599D6
+palette = 15=#c2c4c4
