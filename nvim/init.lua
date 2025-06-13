@@ -1,6 +1,7 @@
 require("config.lazy")
 require("config.options")
 require("config.keybindings")
+require("config.windowresize")
 
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode

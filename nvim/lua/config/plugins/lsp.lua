@@ -37,6 +37,15 @@ return {
 			setup_server("ts_ls", {
 				cmd = { "typescript-language-server", "--stdio" },
 			})
+			setup_server("nushell", {
+				cmd = { "nu", "--lsp" },
+				filetypes = { "nu" },
+				root_dir = function(fname)
+					return vim.fs.root(fname, { ".git" }) or vim.fs.dirname(fname)
+				end,
+			})
+
+
 			vim.api.nvim_create_autocmd('LspAttach', {
 				callback = function(args)
 					local client = vim.lsp.get_client_by_id(args.data.client_id)

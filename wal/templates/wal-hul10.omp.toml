@@ -1,0 +1,118 @@
+
+console_title_template = "{{'{{'}}if .Root{{'}}'}}[root] {{'{{'}}end{{'}}'}}{{'{{'}}.Shell{{'}}'}} in <{{'{{'}}.Folder{{'}}'}}>"
+
+final_space = true
+version = 3
+
+[palette]
+white = "{color7}"
+black = "{color0}"
+
+[[blocks]]
+type = "prompt"
+alignment = "left"
+newline = true
+
+  [[blocks.segments]]
+  background = "transparent"
+  foreground = "{color7}"
+  style = "plain"
+  template = "┌"
+  type = "text"
+
+  [[blocks.segments]]
+  background = "{color8}"
+  foreground = "{color7}"
+  style = "plain"
+  template = " {{'{{'}}.Icon{{'}}'}}{{'{{'}}if .WSL{{'}}'}} (WSL){{'{{'}}end{{'}}'}}⠀"
+  type = "os"
+
+    [blocks.segments.properties]
+    windows = ""
+    linux = ""
+    ubuntu = ""
+    macos = ""
+
+  [[blocks.segments]]
+  background = "{color7}"
+  foreground = "{color0}"
+  style = "plain"
+  template = "  {{'{{'}}.Name{{'}}'}}⠀"
+  type = "shell"
+
+  [[blocks.segments]]
+  background = "{color11}"
+  foreground = "{color0}"
+  style = "plain"
+  template = "  {{'{{'}}.HostName{{'}}'}}{{'{{'}}.UserName{{'}}'}}⠀"
+  type = "session"
+
+  [[blocks.segments]]
+  background = "{color15}"
+  foreground = "{color0}"
+  style = "plain"
+  template = "{{'{{'}}.HEAD{{'}}'}}⠀"
+  type = "git"
+
+    [blocks.segments.properties]
+    branch_icon = "  "
+
+[[blocks]]
+type = "prompt"
+alignment = "right"
+
+  [[blocks.segments]]
+  background = "transparent"
+  foreground = "{color14}"
+  style = "plain"
+  template = "{{'{{'}}.FormattedMs{{'}}'}}"
+  type = "executiontime"
+
+    [blocks.segments.properties]
+    style = "austin"
+    threshold = 0
+
+  [[blocks.segments]]
+  background = "transparent"
+  foreground = "{color14}"
+  style = "plain"
+  template = "<{color7}> · </>{{'{{'}}.CurrentDate | date .Format{{'}}'}}"
+  type = "time"
+
+    [blocks.segments.properties]
+    time_format = "02/01/06 15:04"
+
+[[blocks]]
+type = "prompt"
+alignment = "left"
+newline = true
+
+  [[blocks.segments]]
+  background = "transparent"
+  foreground = "{color7}"
+  style = "plain"
+  template = "<{color7}>└</><{color12}>[</> {{'{{'}}.Path{{'}}'}} <{color12}>]</>"
+  type = "path"
+
+    [blocks.segments.properties]
+    folder_icon = ""
+    folder_separator_template = "<{color12}> » </>>"
+    home_icon = ""
+    style = "agnoster"
+
+[[blocks]]
+type = "prompt"
+alignment = "left"
+newline = true
+
+  [[blocks.segments]]
+  background = "transparent"
+  foreground = "{color10}"
+  foreground_templates = [ "{{'{{'}}if gt .Code 0{{'}}'}}{color9}{{'{{'}}end{{'}}'}}" ]
+  style = "plain"
+  template = "❯"
+  type = "status"
+
+    [blocks.segments.properties]
+    always_enabled = true
+

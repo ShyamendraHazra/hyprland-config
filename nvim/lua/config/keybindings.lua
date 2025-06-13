@@ -33,3 +33,32 @@ vim.keymap.set('n', '<space>bo', '<cmd> enew <CR>', opts) -- new buffer
 
 -- Pywal toggle bg
 vim.keymap.set('n', '<space>tb', ':ToggleBg<CR>', opts)
+
+-- Count-aware window resizing with hjkl
+vim.keymap.set('n', '<Leader>l', function()
+  local count = vim.v.count1  -- Get the count (defaults to 1 if no count given)
+  vim.cmd('ResizeWindow width -' .. count)
+end, { desc = "Decrease width by count" })
+
+vim.keymap.set('n', '<Leader>h', function()
+  local count = vim.v.count1  -- Get the count (defaults to 1 if no count given)
+  local cmnd = 'ResizeWindow width +' .. count
+  print(cmnd)
+  vim.cmd(cmnd)
+end, { desc = "Increase width by count" })
+
+vim.keymap.set('n', '<Leader>k', function()
+  local count = vim.v.count1  -- Get the count (defaults to 1 if no count given)
+  vim.cmd('ResizeWindow height +' .. count)
+end, { desc = "Increase width by count" })
+
+vim.keymap.set('n', '<Leader>j', function()
+  local count = vim.v.count1  -- Get the count (defaults to 1 if no count given)
+  vim.cmd('ResizeWindow height -' .. count)
+end, { desc = "Increase width by count" })
+
+
+-- Window openning shortcuts
+vim.keymap.set('n', '<Leader>ow', ":vnew<CR>", opts)
+vim.keymap.set('n', '<Leader>owj', ":new<CR>", opts)
+

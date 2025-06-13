@@ -1,307 +1,187 @@
-@import "~/.cache/wal/colors-rofi-dark"
+/**
+ * Minimalistic Rofi Configuration with pywal integration
+ * ------------------------------------------
+ * Version: 1.1.0
+ * Author: Claude (Anthropic AI assistant)
+ * Created: April 30, 2025
+ * Last Updated: April 30, 2025
+ * ------------------------------------------
+ * Features:
+ * - Clean, minimalist interface with rounded corners
+ * - Full pywal color scheme integration
+ * - Icon support (using Papirus theme by default)
+ * - Custom image on left side
+ * - Multiple modes: drun, run, window, ssh
+ * - Transparent background (with compositor)
+ * - Custom labeled modes with icons
+ * - Larger application icons for better visibility
+ * - Automatic color adaptation to system theme
+ * - Keyboard navigation with clear visual feedback
+ * ------------------------------------------
+ * Created from prompt: "Create a custom rofi config for app menu with icons 
+ * and minimalistic look with pywal colour integration"
+ * Last update prompt: "Add an image to the left side and make icons bigger"
+ * ------------------------------------------
+ * Configuration method:
+ * 1. Save this file to ~/.config/rofi/config.rasi or your preferred location
+ * 2. Add an image at ~/.config/rofi/rofi-logo.png (or change the path in config)
+ * 3. Launch with: rofi -show drun -config ~/.config/rofi/config.rasi
+ * ------------------------------------------
+ * Imported element style from https://github.com/JaKooLit/HyprNova---Rofi-configs/blob/master/.config/rofi/themes/default.rasi
+ */
 
-configuration {
-	/*---------- General setting ----------*/
-	modi: "drun,run,filebrowser,window";
-	case-sensitive: false;
-	cycle: true;
-	filter: "";
-	scroll-method: 0;
-	normalize-match: true;
-	show-icons: true;
-	icon-theme: "Papirus";
-/*	cache-dir: ;*/
-	steal-focus: false;
-/*	dpi: -1;*/
+/* Import pywal colors */
+@import "~/.cache/wal/colors-rofi-dark.rasi"
 
-	/*---------- Matching setting ----------*/
-	matching: "normal";
-	tokenize: true;
+* {
+    background-alt:              @selected-active-background; // Buttons background
+    selected:                    @selected-normal-background; // Button selected
+    active:                      @selected-urgent-background; // Window activated
+    urgent:                      @selected-normal-background; // When hovering the activated window (maybe more?)
 
-	/*---------- SSH settings ----------*/
-	ssh-client: "ssh";
-	ssh-command: "{terminal} -e {ssh-client} {host} [-p {port}]";
-	parse-hosts: true;
-	parse-known-hosts: true;
+    text-selected:               @background;
+    text:                        @foreground;
 
-	/*---------- Drun settings ----------*/
-	drun-categories: "";
-	drun-match-fields: "name,generic,exec,categories,keywords";
-	drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
-	drun-show-actions: false;
-	drun-url-launcher: "xdg-open";
-	drun-use-desktop-cache: false;
-	drun-reload-desktop-cache: false;
-	drun {
-		/** Parse user desktop files. */
-		parse-user:   true;
-		/** Parse system desktop files. */
-		parse-system: true;
-    }
-
-	/*---------- Run settings ----------*/
-	run-command: "{cmd}";
-	run-list-command: "";
-	run-shell-command: "{terminal} -e {cmd}";
-
-	/*---------- Fallback Icon ----------*/
-	run,drun {
-		fallback-icon: "application-x-addon";
-	}
-
-	/*---------- Window switcher settings ----------*/
-	window-match-fields: "title,class,role,name,desktop";
-	window-command: "wmctrl -i -R {window}";
-	window-format: "{w} - {c} - {t:0}";
-	window-thumbnail: false;
-
-	/*---------- Combi settings ----------*/
-/*	combi-modi: "window,run";*/
-/*	combi-hide-mode-prefix: false;*/
-/*	combi-display-format: "{mode} {text}";*/
-
-	/*---------- History and Sorting ----------*/
-	disable-history: false;
-	sorting-method: "normal";
-	max-history-size: 25;
-
-	/*---------- Display setting ----------*/
-	display-window: "Windows";
-	display-windowcd: "Window CD";
-	display-run: "Run";
-	display-ssh: "SSH";
-	display-drun: "Apps";
-	display-combi: "Combi";
-	display-keys: "Keys";
-	display-filebrowser: "Files";
-
-	/*---------- Misc setting ----------*/
-	terminal: "rofi-sensible-terminal";
-	font: "Mono 12";
-	sort: false;
-	threads: 0;
-	click-to-exit: true;
-/*	ignored-prefixes: "";*/
-/*	pid: "/run/user/1000/rofi.pid";*/
-
-	/*---------- File browser settings ----------*/
-    filebrowser {
-/*	  directory: "/home";*/
-      directories-first: true;
-      sorting-method:    "name";
-    }
-
-	/*---------- Other settings ----------*/
-    timeout {
-      action: "kb-cancel";
-      delay:  0;
-    }
-
-	/*---------- Keybindings ----------*/
-/*
-	kb-primary-paste: "Control+V,Shift+Insert";
-	kb-secondary-paste: "Control+v,Insert";
-	kb-clear-line: "Control+w";
-	kb-move-front: "Control+a";
-	kb-move-end: "Control+e";
-	kb-move-word-back: "Alt+b,Control+Left";
-	kb-move-word-forward: "Alt+f,Control+Right";
-	kb-move-char-back: "Left,Control+b";
-	kb-move-char-forward: "Right,Control+f";
-	kb-remove-word-back: "Control+Alt+h,Control+BackSpace";
-	kb-remove-word-forward: "Control+Alt+d";
-	kb-remove-char-forward: "Delete,Control+d";
-	kb-remove-char-back: "BackSpace,Shift+BackSpace,Control+h";
-	kb-remove-to-eol: "Control+k";
-	kb-remove-to-sol: "Control+u";
-	kb-accept-entry: "Control+j,Control+m,Return,KP_Enter";
-	kb-accept-custom: "Control+Return";
-	kb-accept-custom-alt: "Control+Shift+Return";
-	kb-accept-alt: "Shift+Return";
-	kb-delete-entry: "Shift+Delete";
-	kb-mode-next: "Shift+Right,Control+Tab";
-	kb-mode-previous: "Shift+Left,Control+ISO_Left_Tab";
-	kb-mode-complete: "Control+l";
-	kb-row-left: "Control+Page_Up";
-	kb-row-right: "Control+Page_Down";
-	kb-row-down: "Down,Control+n";
-	kb-page-prev: "Page_Up";
-	kb-page-next: "Page_Down";
-	kb-row-first: "Home,KP_Home";
-	kb-row-last: "End,KP_End";
-	kb-row-select: "Control+space";
-	kb-screenshot: "Alt+S";
-	kb-ellipsize: "Alt+period";
-	kb-toggle-case-sensitivity: "grave,dead_grave";
-	kb-toggle-sort: "Alt+grave";
-	kb-cancel: "Escape,Control+g,Control+bracketleft";
-	kb-custom-1: "Alt+1";
-	kb-custom-2: "Alt+2";
-	kb-custom-3: "Alt+3";
-	kb-custom-4: "Alt+4";
-	kb-custom-5: "Alt+5";
-	kb-custom-6: "Alt+6";
-	kb-custom-7: "Alt+7";
-	kb-custom-8: "Alt+8";
-	kb-custom-9: "Alt+9";
-	kb-custom-10: "Alt+0";
-	kb-custom-11: "Alt+exclam";
-	kb-custom-12: "Alt+at";
-	kb-custom-13: "Alt+numbersign";
-	kb-custom-14: "Alt+dollar";
-	kb-custom-15: "Alt+percent";
-	kb-custom-16: "Alt+dead_circumflex";
-	kb-custom-17: "Alt+ampersand";
-	kb-custom-18: "Alt+asterisk";
-	kb-custom-19: "Alt+parenleft";
-	kb-select-1: "Super+1";
-	kb-select-2: "Super+2";
-	kb-select-3: "Super+3";
-	kb-select-4: "Super+4";
-	kb-select-5: "Super+5";
-	kb-select-6: "Super+6";
-	kb-select-7: "Super+7";
-	kb-select-8: "Super+8";
-	kb-select-9: "Super+9";
-	kb-select-10: "Super+0";
-	ml-row-left: "ScrollLeft";
-	ml-row-right: "ScrollRight";
-	ml-row-up: "ScrollUp";
-	ml-row-down: "ScrollDown";
-	me-select-entry: "MousePrimary";
-	me-accept-entry: "MouseDPrimary";
-	me-accept-custom: "Control+MouseDPrimary";
-*/
 }
 
-/* ---- 💫 https://github.com/JaKooLit 💫 ---- */
-/* Main Config (wallpaper) */
-// @import "~/.config/rofi/config.rasi"  
-/* ---- Configuration ---- */ 
-// configuration {
-//   modi: "drun";
-// }
-// window {
-//   width: 75%;
-//   height: inherit;
-// }
-// /* ---- Mainbox ---- */
-// mainbox {
-//   children:
-//     [ "inputbar", "listview"];
-// }
-// entry {
-//   expand: true;
-//   placeholder: " 🎞️ Search / Choose Wallpaper";
-//   horizontal-align: 0.5;
-//   horizontal-align: 0.5;
-// }
-// /* ---- Listview ---- */
-// listview {
-//   columns: 6;
-//   lines: 2;
-//   spacing: 20px;
-//   padding: 10px;
-//   columns: 6;
-//   lines: 2;
-//   flow: horizontal;
-//   fixed-width: true;
-//   fixed-height: true;
-//   cycle: true;
-// }
-// /* ---- Element ---- */
-// element {
-//   orientation: vertical;
-//   padding: 0px;
-//   spacing: 0px;
-//   border-radius: 10px;
-//   padding: 0px;
-//   margin: 0px;
-// }
-// element selected.normal {
-//   background-color: transparent;
-// }
-// element-icon {
-//     text-color:                  inherit;
-//     size:                        10%;
-//     margin:                      -30px;
-//     cursor:                      inherit;
-// }
-// element-text {
-//   vertical-align: 0.5;
-//   horizontal-align: 0.5;
-//   padding: 6px;
-//   margin: 6px;
-// }
+
+configuration {
+    modi: "drun,run,window,ssh";
+    icon-theme: "Papirus";
+    show-icons: true; 
+    font: "JetBrains Mono Nerd Font 10";
+    drun-display-format: "{icon} {name}";
+    location: 0;
+    disable-history: false;
+    hide-scrollbar: true;
+    display-drun: "  Apps ";
+    display-run: "  Run ";
+    display-window: "  Window ";
+    display-ssh: "  SSH ";
+    sidebar-mode: false;
+}
+
+window {
+    transparency: "real";
+    background-color: black / 48%;
+    text-color: @foreground;
+    border: 0px;
+    border-radius: 12px;
+    width: 50%;            /* Increased width to accommodate image */
+    height: 50%;           /* Increased height for better proportions */
+    padding: 0;
+}
+
+mainbox {
+    background-color: black /24%;
+    border-radius: 12px;
+    children: [ inputbar, horibox ];  /* Changed from [inputbar, listview] */
+    border: 0;
+    padding: 0;
+}
 
 
-//
-// @import "~/.cache/wal/colors-rofi-dark.rasi"
-//
-//
-// configuration {
-//   modi: "drun";
-// }
-//
-// window {
-//   width: 75%;
-//   height: inherit;
-//   background-color: @background;
-//   border: 2px solid @border-color;
-// }
-//
-// /* ---- Mainbox ---- */
-// mainbox {
-//   children: [ "inputbar", "listview"];
-// }
-//
-// entry {
-//   expand: true;
-//   placeholder: " 🎞️ Search / Choose Wallpaper";
-//   horizontal-align: 0.5;
-//   text-color: @foreground;
-// }
-//
-// /* ---- Listview ---- */
-// listview {
-//   columns: 6;
-//   lines: 2;
-//   spacing: 20px;
-//   padding: 10px;
-//   flow: horizontal;
-//   fixed-width: true;
-//   fixed-height: true;
-//   cycle: true;
-//   background-color: @background;
-//   border: 2px solid @border-color;
-// }
-//
-// /* ---- Element ---- */
-// element {
-//   orientation: vertical;
-//   padding: 5px;
-//   spacing: 5px;
-//   border-radius: 10px;
-//   border: 2px solid @border-color;
-//   background-color: @normal-background;
-// }
-//
-// element selected.normal {
-//   background-color: @selected-normal-background;
-//   border: 2px solid @selected-normal-foreground;
-// }
-//
-// element-icon {
-//   text-color: @foreground;
-//   size: 48px;
-//   margin: 5px;
-// }
-//
-// element-text {
-//   vertical-align: 0.5;
-//   horizontal-align: 0.5;
-//   padding: 6px;
-//   margin: 6px;
-//   text-color: @foreground;
-// }
+
+inputbar {
+    children: [ prompt, entry ];
+    background-color: black / 50%;
+    text-color: @normal-foreground;
+    expand: false;
+    border-radius: 0;
+    margin: 0 0 8px 0;
+    padding: 8px;
+    spacing: 0;
+}
+prompt {
+    enabled: true;
+    padding: 10px;
+    background-color: transparent;
+    text-color: @normal-foreground;
+    border-radius: 8px;
+    margin: 0 0 0 8px;
+}
+
+entry {
+    background-color: transparent;
+    text-color: @normal-foreground;
+    placeholder-color: @normal-foreground;
+    expand: true;
+    horizontal-align: 0;
+    placeholder: "Search...";
+    padding: 10px;
+    border-radius: 8px;
+    margin: 0 8px 0 0;
+    blink: true;
+}
+
+/* New horizontal box to hold image and listview side by side */
+horibox {
+    orientation: horizontal;
+    background-color: black / 24%;
+    children: [ image, listview ];
+}
+/* Configuration for the image */
+image {
+    // expand: false;
+    background-image : url("/home/shyamendrahazra/Pictures/wall.png", height);  /* The height parameter ensures that the image is not stretched*/
+    vertical-align: 0.5;
+    horizontal-align: 0.5;
+    size: 60px;           /* Size of the image */
+    border-radius: 9px;    /* Rounded corners for the image */
+}
+
+
+listview {
+    background-color: inherit;
+    padding: 0 8px 8px 8px;
+    columns: 1;
+    lines: 8;
+    spacing: 6px;
+    cycle: true;
+    dynamic: true;
+    layout: vertical;
+    fixed-height: 0;
+    border: 0;
+}
+/* Elements ----------------------------------------------------- */
+
+element {
+    margin: 10px 0;
+    padding: 5px;
+    border-radius: 9px;
+}
+
+element normal.normal,
+element alternate.normal {
+    background-color: transparent;
+    text-color: @normal-foreground;
+    orientation: horizontal;
+    border-radius: 6px;
+    padding: 8px;
+    border: 0;
+}
+
+element selected.normal {
+    background-color:            @selected-normal-background;
+    text-color:                  @foreground;
+    border:                      1px solid;
+    border-color:                @selected;
+}
+
+
+element-icon {
+    background-color: transparent;
+    text-color: inherit;
+    size: 38px;           /* CHANGED: Increased icon size from 24px to 32px */
+    margin: 0 12px 0 0;   /* CHANGED: Increased right margin to accommodate larger icons */
+}
+
+element-text {
+    background-color: inherit;
+    text-color: inherit;
+    expand: true;
+    horizontal-align: 0;
+    vertical-align: 0.5;
+    margin: 0;
+}
 
