@@ -14,3 +14,7 @@ waybar/colors-waybar.css
 !ghostty/**
 !wal/
 !wal/**
+!nushell/
+!nushell/**
+nushell/history.txt
+*~

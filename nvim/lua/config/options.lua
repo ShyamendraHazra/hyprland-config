@@ -22,8 +22,8 @@ vim.opt.list = true             -- Show invisible characters
 vim.opt.listchars = { tab = "┃ ", trail = "·" }  -- Symbols for tabs and trailing spaces
 
 -- Files and backups
-vim.opt.swapfile = false        -- Don't create swap files
-vim.opt.backup = true          -- create backup files
+vim.opt.swapfile = true        -- Don't create swap files
+vim.opt.backup = false          -- create backup files
 vim.opt.undodir = vim.fn.expand("~/.vim/undodir")  -- Persistent undo history
 vim.opt.undofile = true         -- Enable persistent undo
 
