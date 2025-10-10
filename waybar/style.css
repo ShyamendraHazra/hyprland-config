@@ -1,8 +1,8 @@
 @import 'colors-waybar.css';
 
 * {
-    font-family: CartographCF Nerd Font, Iosevka Nerd Font;
-    font-size: 14px;
+    font-family: JetBrains Nerd Font Mono, Iosevka Nerd Font;
+    font-size: 12px;
 }
 
 window#waybar {
@@ -21,13 +21,11 @@ window#waybar.hidden {
 }
 
 #clock,
-#cpu,
-#memory,
-#custom-media,
 #tray,
-#mode,
+#network,
+#bluetooth,
+#pulseaudio,
 #workspaces,
-#battery,
 #idle_inhibitor,
 #custom-power-menu,
 #custom-wallpaper,
@@ -46,24 +44,10 @@ window#waybar.hidden {
 #custom-weather.snowyIcyNight,
 #custom-weather.default {
     color: @foreground;
-    padding: 2px 6px;
+    padding: 0 4px;
     background-color: @background;
-    border-radius: 6px;
-    margin: 6px 3px 0;
-}
-
-#custom-launcher {
-    color: @color9;
-    padding: 0 20px 0 20px;
-    margin-left: 8px;
-}
-
-#cpu {
-    color: @color10;
-}
-
-#memory {
-    color: @color11;
+    border-radius: 20px;
+    margin: 3px 6px;
 }
 
 #workspaces {
@@ -77,14 +61,15 @@ window#waybar.hidden {
 }
 
 #workspaces button.active {
-    color: @color9;
+    background-color: @color9;
     margin-right: 0em;
+    border-radius : 100%;
     transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
 }
 
 /* If workspaces is the leftmost module, omit left margin */
 .modules-left > widget:first-child > #workspaces {
-    margin-left: 0;
+    margin-left: 5px;
 }
 
 /* If workspaces is the rightmost module, omit right margin */

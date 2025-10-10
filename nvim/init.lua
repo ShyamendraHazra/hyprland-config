@@ -1,3 +1,4 @@
+vim.opt.termguicolors = false
 require("config.lazy")
 require("config.options")
 require("config.keybindings")

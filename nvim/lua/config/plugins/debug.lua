@@ -108,26 +108,54 @@ return {
       ------------------------------------------------------------------
       -- Auto-detect C/C++ executables under bin/Linux/*_linux*
       ------------------------------------------------------------------
-      dap.configurations.cpp = {
-        {
-          name    = "Launch C/C++ (CodeLLDB)",
-          type    = "codelldb",
-          request = "launch",
-          program = function()
-            local dir = vim.fn.getcwd() .. "/bin/Linux/"
-            local exes = vim.fn.glob(dir .. "*_linux*", true, true)
-            if vim.tbl_isempty(exes) then
-              vim.notify("No executables found in bin/Linux/", vim.log.levels.ERROR)
-              return
-            end
-            return vim.fn.input("Path to executable: ", exes[1], "file")
-          end,
-          cwd         = "${workspaceFolder}",
-          stopOnEntry = false,
-          args        = {},
-        },
-      }
-      dap.configurations.c = dap.configurations.cpp
+
+    dap.configurations.cpp = {
+      {
+        name = "Launch C/C++ (CodeLLDB)",
+        type = "codelldb",
+        request = "launch",
+        program = function()
+          -- Ask user for the directory containing binaries
+          local dir = vim.fn.input("Path to binaries directory: ", vim.fn.getcwd() .. "/", "dir")
+          if dir == "" then
+            vim.notify("No directory provided!", vim.log.levels.ERROR)
+            return
+          end
+
+          -- Get list of executables in that directory
+          local exes = vim.fn.glob(dir .. "*", true, true)
+          if vim.tbl_isempty(exes) then
+            vim.notify("No executables found in " .. dir, vim.log.levels.ERROR)
+            return
+          end
+
+          -- If only one executable, return it directly
+          if #exes == 1 then
+            return exes[1]
+          end
+
+          -- Use a synchronous picker for multiple executables
+          local choice
+          vim.ui.select(exes, {
+            prompt = "Select executable to debug:",
+            format_item = function(item)
+              return vim.fn.fnamemodify(item, ":t") -- show only filename
+            end,
+          }, function(selected)
+            choice = selected
+          end)
+
+          -- Wait until user makes a selection
+          -- In Neovim 0.9+, vim.ui.select is synchronous if used in this pattern
+          return choice
+        end,
+        cwd = "${workspaceFolder}",
+        stopOnEntry = false,
+        args = {},
+      },
+    }
+
+    dap.configurations.c = dap.configurations.cpp
 
       ------------------------------------------------------------------
       -- Rust configuration: detects binary using cargo metadata
