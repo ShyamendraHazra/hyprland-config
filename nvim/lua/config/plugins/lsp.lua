@@ -32,22 +32,6 @@ return {
 				require("lspconfig")[server_name].setup(config)
 			end
 
-			--[[
-			Required LSP packages to install via pacman on Arch Linux:
-			- lua-language-server       => `lua-language-server`
-			- clangd (C/C++)            => `clang` (contains clangd)
-			- neocmake (CMake)          => `cmake-language-server`
-			- intelephense (PHP)        => `php-intelephense` (use npm: `npm i -g intelephense`)
-			- html, css                 => `vscode-html-languageserver` / `vscode-css-languageserver` (use npm: `npm i -g vscode-langservers-extracted`)
-			- typescript-language-server => `typescript-language-server` (npm: `npm i -g typescript typescript-language-server`)
-			- python                    => `python-lsp-server`
-  Recommended installation (avoids system conflicts):
-    pipx install 'python-lsp-server[all]'  -- requires `pacman -S python-pipx`
-  Or using explicit python command:
-    python -m pip install --break-system-packages 'python-lsp-server[all]'
-			- nushell                   => `nu` (provides built-in LSP: `nu --lsp`)
-			]]
-
 			-- Lua
 			setup_server("lua_ls")
 
@@ -75,6 +59,33 @@ return {
 			-- TypeScript / JavaScript
 			setup_server("ts_ls", {
 				cmd = { "typescript-language-server", "--stdio" },
+			})
+
+			-- Emmet
+			setup_server("emmet_language_server", {
+				filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "pug", "typescriptreact" },
+				-- Read more about this options in the [vscode docs](https://code.visualstudio.com/docs/editor/emmet#_emmet-configuration).
+				-- **Note:** only the options listed in the table are supported.
+				init_options = {
+					---@type table<string, string>
+					includeLanguages = {},
+					--- @type string[]
+					excludeLanguages = {},
+					--- @type string[]
+					extensionsPath = {},
+					--- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/preferences/)
+					preferences = {},
+					--- @type boolean Defaults to `true`
+					showAbbreviationSuggestions = true,
+					--- @type "always" | "never" Defaults to `"always"`
+					showExpandedAbbreviation = "always",
+					--- @type boolean Defaults to `false`
+					showSuggestionsAsSnippets = false,
+					--- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/syntax-profiles/)
+					syntaxProfiles = {},
+					--- @type table<string, string> [Emmet Docs](https://docs.emmet.io/customization/snippets/#variables)
+					variables = {},
+				},
 			})
 
 			-- Python
