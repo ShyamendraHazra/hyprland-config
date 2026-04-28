@@ -3,7 +3,9 @@
 background-opacity = 0.9
 unfocused-split-opacity = 0.4
 
-font-size = 14
+font-family = "JetBrains Mono Medium"
+font-style-bold = true
+font-size = 12
 
 window-decoration = false
 window-padding-x = 5
@@ -26,5 +28,28 @@ auto-update-channel = stable
 
 # Keybinds
 
-keybind = ctrl+a>r=reload_config
-keybind = ctrl+a>t=new_tab
+#config reload
+keybind = ctrl+r=reload_config
+
+#UI Controls
+
+keybind = ctrl+t=new_tab
+
+#splits
+
+keybind = ctrl+n>r=new_split:right
+keybind = ctrl+n>d=new_split:down
+keybind = ctrl+n>u=new_split:up
+keybind = ctrl+n>l=new_split:left
+
+keybind = ctrl+s>r=goto_split:right
+keybind = ctrl+s>d=goto_split:down
+keybind = ctrl+s>u=goto_split:up
+keybind = ctrl+s>l=goto_split:left
+
+
+keybind = ctrl+shift+s>r=resize_split:right,20
+keybind = ctrl+shift+s>d=resize_split:down,20
+keybind = ctrl+shift+s>u=resize_split:up,20
+keybind = ctrl+shift+s>l=resize_split:left,20
+
